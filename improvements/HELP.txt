@@ -1,0 +1,44 @@
+OPTIONAL IMPROVEMENTS - separate test package (2026.11.27.1)
+
+The NORMAL update remains version 2026.11.27.1 (full-video editor and hashtags).
+Normal UPDATE-SHORTSFLOW.cmd does NOT install this optional folder.
+
+FIRST: install the normal update with repository-root INSTALL-UPDATE.cmd.
+WHEN YOU WANT TO TEST: in this improvements folder run INSTALL-IMPROVEMENTS.cmd
+and choose your existing D:\shortsflow (or whichever drive it uses).
+Wait for active work to finish and stop the app before installation.
+It installs ONLY inside <shortsflow>\improvements. It does not launch itself.
+The optional automatic queue starts PAUSED on its first installation. Resume
+it in the test dashboard only when you want your saved jobs to upload.
+
+Inside your installed improvements folder:
+RUN-IMPROVEMENTS.cmd        start optional test mode (same normal dashboard port)
+STOP-IMPROVEMENTS.cmd       stop test mode after work finishes
+UPDATE-IMPROVEMENTS.cmd     download only the separate optional package
+ROLLBACK-IMPROVEMENTS.cmd   restore its previous optional code version, or disable
+                           it on the first install. Normal base code is untouched.
+
+Normal RUN-SHORTSFLOW.cmd always runs the stable app without the improvements.
+Do not run stable and test modes at the same time on port 7875.
+
+OPTIONAL TOOLS (at the bottom of the test dashboard):
+1. Reliable queue: pause/resume, failed-job retry after checking Studio,
+   per-slot 24-hour upload-limit cooldown, resumable chunk retries (up to 3).
+   Uncertain/interrupted uploads are not automatically restarted from scratch.
+   The existing opt-in auto-publish setting adds completed runs to this queue.
+2. Subtitle corrections: load a completed video with cached captions/transcript,
+   edit original source timings/text, save SRT, export a NEW corrected project.
+   Existing videos/transcripts are not overwritten. Old heavy effects may differ
+   in the fast short re-export. You need the original local source video.
+3. New Shorts candidates: bounded sentence-boundary adjustments (up to 4 seconds,
+   max 60-second clip) using the cached transcript. No complete-story guarantee.
+4. Full-video explanation drafts: local Ollama only, based on cached subtitles.
+   Review every note. They are not independently fact-checked or auto-applied.
+   Copy reviewed notes into the full-video editor, then render when you choose.
+
+State and backups stay inside improvements/state and improvements/backups.
+Install/update/rollback preserve videos, models, account tokens and schedules.
+Rollback restores CODE: intentionally saved edits, queue results, cooldown state
+and rendered files remain. Already uploaded videos cannot be undone by rollback.
+Failed/uncertain jobs stay failed when switching to stable mode, preventing an
+automatic duplicate retry. Stable mode does not enforce optional cooldowns.

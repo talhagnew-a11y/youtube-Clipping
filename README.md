@@ -137,3 +137,36 @@ future uploads. They do not edit videos that were already uploaded to YouTube.
 
 The update remains lightweight. Existing models and YouTube sign-in are reused.
 Rollback is available with ROLLBACK-SHORTSFLOW.cmd after closing the app.
+
+## OPTIONAL improvements: separate install/update/rollback folder
+
+The normal full-video/hashtag update is still **2026.11.27.1**. Its payload and
+update-manifest are unchanged by the optional improvements. Running the normal
+updater never enables these tests.
+
+When ready, download/extract a fresh repository ZIP. First install the normal
+update using root **INSTALL-UPDATE.cmd** if it has not been installed yet.
+Then, only when you want to test, open **improvements/INSTALL-IMPROVEMENTS.cmd**
+and select the existing ShortsFlow folder. Let active jobs finish and stop the
+app first. Installation does not start test mode automatically.
+
+The installed **shortsflow/improvements/** folder contains:
+
+- **RUN-IMPROVEMENTS.cmd**: launch the optional test mode.
+- **STOP-IMPROVEMENTS.cmd**: stop that mode after jobs finish.
+- **UPDATE-IMPROVEMENTS.cmd**: update only the optional package from this repo.
+- **ROLLBACK-IMPROVEMENTS.cmd**: restore the previous optional code version, or
+  disable the first installation. Stable base files are never overwritten.
+
+Normal **RUN-SHORTSFLOW.cmd** always uses stable mode. Do not run both modes on
+port 7875 simultaneously. Runtime integration, state and code backups live in
+the separate improvements folder. Installation checks the exact tested base.
+
+Optional tools are at the bottom of the test dashboard: automatic upload queue
+pause/resume, per-slot upload-limit cooldown, same-session resumable retries,
+manual retry after checking Studio; cached subtitle correction to a new export;
+bounded sentence-boundary adjustment for new Shorts; local Ollama explanation
+drafts that require review. See improvements/HELP.txt for the workflow and limits.
+Rollback restores code, not already uploaded videos or intentional saved edits.
+Normal mode does not enforce the optional queue cooldowns.
+On the first optional installation, its automatic upload queue starts PAUSED. Resume it in the optional dashboard only when ready to upload saved jobs.

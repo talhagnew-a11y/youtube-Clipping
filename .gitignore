@@ -20,3 +20,7 @@
 !/ROLLBACK-SHORTSFLOW.cmd
 
 !/REFRESH-UPDATE-LOGIN.cmd
+
+!/improvements/
+!/improvements/**
+!/Build-Improvements.ps1
