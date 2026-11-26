@@ -1,272 +1,272 @@
 {
-  "schema": 1,
-  "upstream_version": "0.9.4",
   "repository": "talhagnew-a11y/youtube-Clipping",
-  "version": "2026.11.26.6",
+  "upstream_version": "0.9.4",
+  "version": "2026.11.26.7",
   "files": [
     {
       "source": "payload/Apply-ShortsFlow-Update.ps1",
+      "sha256": "2c2fdea1cfd8dcb36e9237e2b924b6ced041b41f9bed73b7ae7d8432c96fc33a",
       "target": "Apply-ShortsFlow-Update.ps1",
-      "sha256": "378b76bd1b4343a23890d9f33b7346aea32195b15a9fe6a171417160fe922207",
-      "bytes": 5906
+      "bytes": 6072
     },
     {
       "source": "payload/CHECK-SETUP.cmd",
-      "target": "CHECK-SETUP.cmd",
       "sha256": "8c2cb3d5741933447f427a8d5cbe7c648f16977684ec6bb5cd672e6801fd4fdd",
+      "target": "CHECK-SETUP.cmd",
       "bytes": 120
     },
     {
       "source": "payload/COMPARE-CPU-INTEL.cmd",
-      "target": "COMPARE-CPU-INTEL.cmd",
       "sha256": "7585a92427178fe3e11aaa20d97f2314b237f8b6d4e6002d6a80726a8be1fcd3",
+      "target": "COMPARE-CPU-INTEL.cmd",
       "bytes": 262
     },
     {
       "source": "payload/COMPARE-CPU-INTEL.ps1",
-      "target": "COMPARE-CPU-INTEL.ps1",
       "sha256": "25c3edb821a2b3d5b0eea7bdc71140275cc71b8e7802360240d2abd34da27eba",
+      "target": "COMPARE-CPU-INTEL.ps1",
       "bytes": 567
     },
     {
       "source": "payload/CPU-INTEL-HELP.txt",
-      "target": "CPU-INTEL-HELP.txt",
       "sha256": "ad6330e3a04e90b72d23866ef81b35ddced9ba0f286d347a062b4aaa39a1c30a",
+      "target": "CPU-INTEL-HELP.txt",
       "bytes": 1010
     },
     {
       "source": "payload/FAST-SETTINGS-AND-COPY.txt",
-      "target": "FAST-SETTINGS-AND-COPY.txt",
       "sha256": "13be0e080d89f85e452e3a0c2421f55d4723670a251fe75beb3f5f9387cb2eff",
+      "target": "FAST-SETTINGS-AND-COPY.txt",
       "bytes": 1192
     },
     {
       "source": "payload/FAST-SHORTSFLOW.cmd",
-      "target": "FAST-SHORTSFLOW.cmd",
       "sha256": "14fd3d8ecef9facf3f7a544482af9266fed77ad4b6de6f35100f1ada9268128c",
+      "target": "FAST-SHORTSFLOW.cmd",
       "bytes": 166
     },
     {
       "source": "payload/FIX-PAKISTAN-TIME.cmd",
-      "target": "FIX-PAKISTAN-TIME.cmd",
       "sha256": "afc32d596af16222dc0cf3392ff2694d42aba5426a8bacda9270a1d4cc43c9e9",
+      "target": "FIX-PAKISTAN-TIME.cmd",
       "bytes": 124
     },
     {
       "source": "payload/HIGH-QUALITY-SHORTSFLOW.cmd",
-      "target": "HIGH-QUALITY-SHORTSFLOW.cmd",
       "sha256": "11d6d809c7e4f55bc1e680369d903e357b3512597b875eff1c536ea210efa525",
+      "target": "HIGH-QUALITY-SHORTSFLOW.cmd",
       "bytes": 166
     },
     {
       "source": "payload/I7-FINAL-SETTINGS.txt",
-      "target": "I7-FINAL-SETTINGS.txt",
       "sha256": "4f5f49b0e351d7b42509b010297407a501995324bfa7c96e8d133e07e720598c",
+      "target": "I7-FINAL-SETTINGS.txt",
       "bytes": 800
     },
     {
       "source": "payload/LICENSE-ShortsFlow.txt",
-      "target": "LICENSE-ShortsFlow.txt",
       "sha256": "cec5e0023f60656ff3db506611595b2143997d3f56eac0e4c12ef090ebf51e99",
+      "target": "LICENSE-ShortsFlow.txt",
       "bytes": 1073
     },
     {
       "source": "payload/LOCAL-CHANGES.txt",
-      "target": "LOCAL-CHANGES.txt",
       "sha256": "fca2e32c5f05ea7e19a0a3bfdae5714c4d3da64b168fb6f891b6b659dce521e6",
+      "target": "LOCAL-CHANGES.txt",
       "bytes": 1312
     },
     {
       "source": "payload/PORTABLE-HELP.txt",
-      "target": "PORTABLE-HELP.txt",
       "sha256": "e47ea18fcd3250b645cdce13ec01ebad417d20df0364a67c296285f6ff6d6662",
+      "target": "PORTABLE-HELP.txt",
       "bytes": 1697
     },
     {
       "source": "payload/Portable.ps1",
+      "sha256": "9744d3056cf719d16b979d3bca402ab5f29bfeb7448e5c9cb250f6c753383e34",
       "target": "Portable.ps1",
-      "sha256": "f42c8c62ed0d69864ccf071b4626ce1637e1de56cf5f1d7d61ebc42fbe1ffe65",
-      "bytes": 3892
+      "bytes": 4218
     },
     {
       "source": "payload/REFRESH-UPDATE-LOGIN.cmd",
-      "target": "REFRESH-UPDATE-LOGIN.cmd",
       "sha256": "a1fb81238d74f9ed154cf1266602ec476647bcd04ab57cb995ee652a2084be6e",
+      "target": "REFRESH-UPDATE-LOGIN.cmd",
       "bytes": 133
     },
     {
       "source": "payload/RESUME-LAST-VIDEO.cmd",
-      "target": "RESUME-LAST-VIDEO.cmd",
       "sha256": "9c2bec0482b7e7669d767dac3f73c60955abec073cdd6e2f38def9a8172139ce",
+      "target": "RESUME-LAST-VIDEO.cmd",
       "bytes": 116
     },
     {
       "source": "payload/Resume-Last-Video.ps1",
-      "target": "Resume-Last-Video.ps1",
       "sha256": "cc8b12b9948fe51fbe8f063991f655d68c1a18b13e6ff13c07e210bd1bbb897f",
+      "target": "Resume-Last-Video.ps1",
       "bytes": 2470
     },
     {
       "source": "payload/ROLLBACK-SHORTSFLOW.cmd",
-      "target": "ROLLBACK-SHORTSFLOW.cmd",
       "sha256": "5fccd5cda527d009dc6e636490264fe12713c359a5cc68ec6cfa162b1c82cb11",
+      "target": "ROLLBACK-SHORTSFLOW.cmd",
       "bytes": 187
     },
     {
       "source": "payload/Rollback-ShortsFlow.ps1",
-      "target": "Rollback-ShortsFlow.ps1",
       "sha256": "250b30a339256a8a3a8123fdd67ef67501decc236e1d8cf66c6182cb9c62f266",
+      "target": "Rollback-ShortsFlow.ps1",
       "bytes": 2863
     },
     {
       "source": "payload/RUN-SHORTSFLOW.cmd",
-      "target": "RUN-SHORTSFLOW.cmd",
       "sha256": "42b1f0c08357ed77941d5a9f8c95b2837718fecefed45f80dc1415ed404ccaba",
+      "target": "RUN-SHORTSFLOW.cmd",
       "bytes": 107
     },
     {
       "source": "payload/ShortsFlow Terminal.cmd",
-      "target": "ShortsFlow Terminal.cmd",
       "sha256": "417a255f42f4e9e510a2db4fdfc8dd5e7048f48d3e83b2407248a66f0f972c80",
+      "target": "ShortsFlow Terminal.cmd",
       "bytes": 142
     },
     {
       "source": "payload/SHORTSFLOW-CLI.cmd",
-      "target": "SHORTSFLOW-CLI.cmd",
       "sha256": "15dcdb027bc0cba3f11801aae09e1522f5161d4dd57b06743c7bbae5cd76ec83",
+      "target": "SHORTSFLOW-CLI.cmd",
       "bytes": 114
     },
     {
       "source": "payload/ShortsFlow.cmd",
-      "target": "ShortsFlow.cmd",
       "sha256": "9dc7fa983745f507907d2cb8a11e07ca340b1cc0665da997f8cd9c4051bbf482",
+      "target": "ShortsFlow.cmd",
       "bytes": 42
     },
     {
       "source": "payload/Stop-Portable.ps1",
+      "sha256": "7b0b5ef2fbeea49e69fd6d888be84a8a7b163a1198c897a5724e337e6b22afa1",
       "target": "Stop-Portable.ps1",
-      "sha256": "ccb8563a87e55f0e776cbe01a7eb7e42aff7d8074f8af343a3659a2947d4c9c1",
-      "bytes": 972
+      "bytes": 2192
     },
     {
       "source": "payload/STOP-SHORTSFLOW.cmd",
-      "target": "STOP-SHORTSFLOW.cmd",
       "sha256": "ebebfe7aac5d1213b66c9005c3b0ca65169328af651f67d30c6c28caa09b49fa",
+      "target": "STOP-SHORTSFLOW.cmd",
       "bytes": 98
     },
     {
       "source": "payload/Sync-Pakistan-Time.ps1",
-      "target": "Sync-Pakistan-Time.ps1",
       "sha256": "f0591eee2ffbdba7806953973b2512e331fdd200a1250b44ca42329314642193",
+      "target": "Sync-Pakistan-Time.ps1",
       "bytes": 1952
     },
     {
       "source": "payload/TEST-GPU.cmd",
-      "target": "TEST-GPU.cmd",
       "sha256": "54358df488d168e76d385a43e5a27d6a603fc49e362aa384e863ed09c74c2a51",
+      "target": "TEST-GPU.cmd",
       "bytes": 215
     },
     {
       "source": "payload/TEST-GPU.ps1",
-      "target": "TEST-GPU.ps1",
       "sha256": "c653df24f7567d78b4b0499ebf7a764f2eba97dc73cfebd4de013d8ecf242e2d",
+      "target": "TEST-GPU.ps1",
       "bytes": 645
     },
     {
       "source": "payload/tools/compare-cpu-intel.py",
-      "target": "tools/compare-cpu-intel.py",
       "sha256": "8c3b24b9dba314156ea6596d6e4dd42fdb6364bc1a292d7e202747ff6ebba05f",
+      "target": "tools/compare-cpu-intel.py",
       "bytes": 6124
     },
     {
       "source": "payload/tools/gpu-test.py",
-      "target": "tools/gpu-test.py",
       "sha256": "e157211d08d620ada92778e4c767af7ccf6efcc131f0db58ae1bd9443f260296",
+      "target": "tools/gpu-test.py",
       "bytes": 7002
     },
     {
       "source": "payload/tools/portable-check.py",
-      "target": "tools/portable-check.py",
       "sha256": "c7fbd92548a90e178d31b4b152e5237be454fc438d03f4bdc02ff1d26113ff93",
+      "target": "tools/portable-check.py",
       "bytes": 1481
     },
     {
       "source": "payload/UPDATE-FROM-ZIP.cmd",
-      "target": "UPDATE-FROM-ZIP.cmd",
       "sha256": "154c5704aad065db6be02ef074b57c81384f8c9fd81de71b232e99ee2e5ac51d",
+      "target": "UPDATE-FROM-ZIP.cmd",
       "bytes": 348
     },
     {
       "source": "payload/UPDATE-SHORTSFLOW.cmd",
-      "target": "UPDATE-SHORTSFLOW.cmd",
       "sha256": "b06bdcb2a2f15bc111c0be02797672603eeb0c7bab69afed45cbf0b9eda755ec",
+      "target": "UPDATE-SHORTSFLOW.cmd",
       "bytes": 122
     },
     {
       "source": "payload/Update-ShortsFlow.ps1",
-      "target": "Update-ShortsFlow.ps1",
       "sha256": "16da1234a40017cabeb1f5808b2fcb635610c99aaafe11f87bd8aa8597eed7d4",
+      "target": "Update-ShortsFlow.ps1",
       "bytes": 5065
     },
     {
       "source": "payload/venv/Lib/site-packages/engine/analysis.py",
-      "target": "venv/Lib/site-packages/engine/analysis.py",
       "sha256": "8862d52f1eba50898051528352ba229436be783ead1df778eb3b8889a114cb2f",
+      "target": "venv/Lib/site-packages/engine/analysis.py",
       "bytes": 110941
     },
     {
       "source": "payload/venv/Lib/site-packages/engine/portable_encoder.py",
-      "target": "venv/Lib/site-packages/engine/portable_encoder.py",
       "sha256": "95a4e23374f81b298296b68e456ad17d2d68cbf915f5741ef26b9c45aa37df8d",
+      "target": "venv/Lib/site-packages/engine/portable_encoder.py",
       "bytes": 1951
     },
     {
       "source": "payload/venv/Lib/site-packages/engine/portable_fast.py",
-      "target": "venv/Lib/site-packages/engine/portable_fast.py",
       "sha256": "fbf2b268a8a0e5ced46ebe91eaeec4191edb4970962340af7e79f12bb667b897",
+      "target": "venv/Lib/site-packages/engine/portable_fast.py",
       "bytes": 3314
     },
     {
       "source": "payload/venv/Lib/site-packages/engine/remotion_renderer.py",
-      "target": "venv/Lib/site-packages/engine/remotion_renderer.py",
       "sha256": "aa4b50bc6e8920c82fa1f3cb2c2945d486c57ec9b6572b16a9bbe60154a9e633",
+      "target": "venv/Lib/site-packages/engine/remotion_renderer.py",
       "bytes": 26748
     },
     {
       "source": "payload/venv/Lib/site-packages/engine/script_gen.py",
-      "target": "venv/Lib/site-packages/engine/script_gen.py",
       "sha256": "013e3803c726ae15bae67d4de50d34ec4655c560d75d8156673967351fb26106",
+      "target": "venv/Lib/site-packages/engine/script_gen.py",
       "bytes": 139996
     },
     {
       "source": "payload/venv/Lib/site-packages/engine/video_gen.py",
-      "target": "venv/Lib/site-packages/engine/video_gen.py",
       "sha256": "6768f2b43f03898b86f732ec3b8db0e2af8908fb553a5fb6b46fb8f95007cc06",
+      "target": "venv/Lib/site-packages/engine/video_gen.py",
       "bytes": 171689
     },
     {
       "source": "payload/venv/Lib/site-packages/shortsflow/_main.py",
-      "target": "venv/Lib/site-packages/shortsflow/_main.py",
       "sha256": "09ab0b1ec2dc37bd3b84eb2aab0a29911037fc6d2547fa2557055bd720a10555",
+      "target": "venv/Lib/site-packages/shortsflow/_main.py",
       "bytes": 64934
     },
     {
       "source": "payload/venv/Lib/site-packages/shortsflow/schedule.py",
-      "target": "venv/Lib/site-packages/shortsflow/schedule.py",
       "sha256": "f011bcf8426ec8182ffdea11d42a6ebe97a0baf308437072ff49bb7b989be325",
+      "target": "venv/Lib/site-packages/shortsflow/schedule.py",
       "bytes": 6918
     },
     {
       "source": "payload/venv/Lib/site-packages/shortsflow/settings.py",
-      "target": "venv/Lib/site-packages/shortsflow/settings.py",
       "sha256": "54cade0e8ccc7f14ab232fb8a213ef21569095a7a80f0d9abb4ae2341af9afb2",
+      "target": "venv/Lib/site-packages/shortsflow/settings.py",
       "bytes": 39798
     },
     {
       "source": "payload/venv/Lib/site-packages/shortsflow/webui.py",
+      "sha256": "6698b72cfba162d289b5070629a1ee63ea4d5b84e8d4ed342b2509e184fb7525",
       "target": "venv/Lib/site-packages/shortsflow/webui.py",
-      "sha256": "d28e7094ec0c3d08e7497c239edf53c6f95b9c4b8cf381235d1327c2c4e6c119",
-      "bytes": 204311
+      "bytes": 204329
     }
-  ]
+  ],
+  "schema": 1
 }

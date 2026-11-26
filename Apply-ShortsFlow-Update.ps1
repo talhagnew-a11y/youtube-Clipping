@@ -1,4 +1,4 @@
-param(
+﻿param(
  [string]$InstallRoot,
  [string]$PackageRoot=$PSScriptRoot,
  [switch]$CheckOnly,
@@ -69,8 +69,10 @@ foreach($item in $items){
   $item.backup=$copy
  }
 }
+$packageStop=Join-Path $PackageRoot 'payload/Stop-Portable.ps1'
 $stop=Join-Path $InstallRoot 'Stop-Portable.ps1'
-if(Test-Path -LiteralPath $stop){& $stop | Out-Host}
+if(Test-Path -LiteralPath $packageStop){& $packageStop -InstallRoot $InstallRoot | Out-Host}
+elseif(Test-Path -LiteralPath $stop){& $stop | Out-Host}
 $applied=New-Object System.Collections.Generic.List[object]
 try {
  foreach($item in $items){AtomicCopy $item.source $item.target;$applied.Add($item)}

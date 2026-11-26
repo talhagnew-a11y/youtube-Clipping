@@ -8,7 +8,15 @@ foreach ($folder in @('temp','logs','models\ollama','models\torch','models\huggi
 # Set Pakistan timezone and request Windows clock synchronization on every start.
 $clockScript=Join-Path $root 'Sync-Pakistan-Time.ps1'
 if(Test-Path -LiteralPath $clockScript){ & $clockScript }
-if ($Mode -eq 'webui') { $PID | Set-Content -LiteralPath (Join-Path $root 'logs/ui.pid') }
+if ($Mode -eq 'webui') {
+    $running=@(& (Join-Path $root 'Stop-Portable.ps1') -InstallRoot $root -ListOnly)
+    if($running.Count){
+        Write-Host 'ShortsFlow is already running. Opening its existing page. Use STOP-SHORTSFLOW.cmd before restarting after an update.'
+        Start-Process 'http://127.0.0.1:7875'
+        return
+    }
+    $PID | Set-Content -LiteralPath (Join-Path $root 'logs/ui.pid')
+}
 if (-not $env:SHORTSFLOW_FAST_MODE) { $env:SHORTSFLOW_FAST_MODE = '1' }
 $env:SHORTSFLOW_HOME = Join-Path $root 'workspace'
 $env:XDG_CACHE_HOME = Join-Path $root 'cache'
