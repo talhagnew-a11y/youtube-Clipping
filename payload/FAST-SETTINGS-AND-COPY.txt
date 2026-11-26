@@ -1,0 +1,26 @@
+DEFAULT FAST SETTINGS
+RUN-SHORTSFLOW.cmd now starts FAST mode by default:
+720p fitted video, simple word captions, FFmpeg CPU rendering.
+Browser animations, Storytime effects, automatic zoom, b-roll, colour filters,
+cold opens and audio enhancement are disabled for speed.
+Ollama still selects moments; Whisper still transcribes new videos.
+
+MEASURED TEST
+Same 3 previously selected moments rendered in 27.63 seconds.
+This reuses saved speech transcript and AI choices.
+It does NOT measure a new video's complete processing time.
+
+RUN ON ANOTHER WINDOWS x64 LAPTOP
+1. Stop ShortsFlow using STOP-SHORTSFLOW.cmd.
+2. Copy this ENTIRE shortsflow folder, including models, python, venv,
+   ffmpeg, node, workspace and tools.
+3. Put it on the other laptop. E:shortsflow is easiest for cached jobs.
+4. Double-click RUN-SHORTSFLOW.cmd.
+5. Open http://127.0.0.1:7875.
+Ollama starts automatically; no separate Ollama installation is needed.
+To resume the preserved Small Talk job use RESUME-LAST-VIDEO.cmd.
+An interrupted clip may start rendering again from its beginning.
+
+HIGH QUALITY
+HIGH-QUALITY-SHORTSFLOW.cmd uses the original animated-effects path.
+Stop the app before disconnecting the drive.

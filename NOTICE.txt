@@ -1,0 +1,7 @@
+This repository is a lightweight update overlay for an existing portable ShortsFlow 0.9.4 installation.
+Upstream: https://github.com/ghost1412/shortsflow
+ShortsFlow and copied upstream source files are MIT licensed; see LICENSE.
+Modified upstream files and portable helper scripts are included here.
+Python, FFmpeg, Node, Ollama, model weights and media are NOT redistributed here.
+Those components retain their own licenses in the existing portable installation.
+This repository is not the upstream ShortsFlow project.

@@ -1,0 +1,40 @@
+CHALANA
+RUN-SHORTSFLOW.cmd double-click karein.
+Browser: http://127.0.0.1:7875
+Band karna: STOP-SHORTSFLOW.cmd
+Setup check: CHECK-SETUP.cmd
+
+DOOSRE LAPTOP PAR COPY
+Pehle STOP-SHORTSFLOW.cmd chalayein, phir POORA shortsflow folder copy karein.
+Naye laptop par RUN-SHORTSFLOW.cmd double-click karein.
+Drive letter ya folder ki jagah badal sakti hai.
+Python, Node, FFmpeg, Ollama aur downloaded models isi folder mein hain.
+Windows x64 chahiye. Doosre physical laptop par abhi test nahi hua.
+Docker ya alag Python/Ollama installation ki zaroorat nahi honi chahiye.
+
+LOCAL AI
+Ollama + qwen2.5:1.5b
+Whisper base (CPU)
+Ollama localhost port: 11435
+Web app localhost port: 7875
+Ek waqt mein ek video se shuru karein. CPU par processing slow ho sakti hai.
+Local file clipping ke liye downloaded models dobara download nahi karne.
+Naye models aur YouTube links ke liye internet chahiye.
+Chhota AI model hamesha best moment nahi chunta; clips publish karne se pehle dekhein.
+
+FILES
+workspace: settings, sessions aur outputs
+models: local AI models
+cache/whisper: speech model
+logs: app logs
+tests/clip-run/video_clip_1.mp4: verified captioned test export
+LOCAL-CHANGES.txt: portability aur CPU compatibility changes
+downloads: original upstream files for the documented local changes
+
+SOURCE
+https://github.com/ghost1412/shortsflow
+https://github.com/ollama/ollama
+Cloud APIs, publishing aur voice cloning optional features hain.
+
+RESUME AFTER SHUTDOWN
+RESUME-LAST-VIDEO.cmd double-click karein. Current Small Talk input ki backup bhi workspace/resume-sources mein saved hai. Completed clips reuse honge; interrupted clip apne shuru se render ho sakti hai. Ye button Windows login par khud nahi chalta.

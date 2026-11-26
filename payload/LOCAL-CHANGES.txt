@@ -1,0 +1,14 @@
+Local compatibility changes to ShortsFlow 0.9.4:
+- engine/script_gen.py: local Ollama context uses SHORTSFLOW_OLLAMA_NUM_CTX
+  (default 4096), and timeout is at least 120 seconds for CPU model loading.
+- engine/analysis.py: accepts a JSON object with START_JSON containing the
+  clip list, in addition to highlights/segments/data/clips.
+Original files are in downloads/*-original.py.
+The upstream installer may overwrite these changes during an update.
+Portable.ps1 runs the bundled interpreter directly, with site-packages on
+PYTHONPATH, to avoid console launchers that embed the original install path.
+- engine/remotion_renderer.py: respect SHORTSFLOW_FORCE_CPU=1; an FFmpeg encoder being compiled in does not prove an NVIDIA GPU is usable.
+- shortsflow/webui.py: detect local clipping uploads with no audio track and report a clear error before loading Whisper.
+- Optional SHORTSFLOW_FAST_MODE=1: 720p FFmpeg captions, no auto-edit effects. FAST-SHORTSFLOW.cmd and HIGH-QUALITY-SHORTSFLOW.cmd switch modes.
+- engine/portable_encoder.py: CPU-specific measured encoder profiles; Intel Quick Sync DXVA2 path with CPU fallback in portable_fast.py. Compare using COMPARE-CPU-INTEL.cmd.
+- shortsflow/webui.py: connect completed shorts to existing opt-in auto-publish handler; disabled publishing remains off.

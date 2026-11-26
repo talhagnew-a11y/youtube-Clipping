@@ -1,0 +1,16 @@
+CPU VERSUS INTEL - HOW TO USE ON THE i7
+1. Connect the drive and close other video processing.
+2. Double-click COMPARE-CPU-INTEL.cmd in the shortsflow folder.
+3. Wait for the comparison to finish (four rounds of three real clips).
+4. The chosen encoder is saved automatically for that CPU model.
+5. Send CPU-INTEL-COMPARISON.json to the assistant for interpretation.
+6. Start RUN-SHORTSFLOW.cmd normally. Its fast renderer reads the saved choice.
+
+Current i5-6200U measured averages: CPU 29.481 seconds; Intel 31.312 seconds.
+This is rendering only, with existing AI choices/transcription reused.
+Both use 720x1280, 30 FPS, same captions and 4 Mbps target H.264 bitrate.
+Same bitrate does not guarantee identical image quality.
+Intel must pass both rounds and be at least 10 percent faster to be selected.
+Until this laptop is benchmarked, the automatic mode uses CPU.
+If Intel fails during a real render, it retries that clip on CPU.
+Whisper and Ollama remain on CPU; this feature accelerates encoding only.

@@ -1,0 +1,16 @@
+i7-4800MQ FINAL PROFILE
+Fast mode: ON (720p, 30 fps, simple word captions, effects disabled).
+Encoder: CPU / libx264, ultrafast, target 4 Mbps, 4 threads.
+Measured average for the same three selected clips:
+CPU 15.393 seconds; Intel Quick Sync 23.351 seconds.
+These timings cover rendering only, not transcription or AI selection.
+
+Quadro K1100M:
+The NVIDIA Sep2015 professional graphics specification table does not mark
+NVENC H.264 hardware encoding as supported for this model.
+Do not expect driver updates or an older FFmpeg build to add that feature.
+Reference, page 2:
+https://images.nvidia.com/content/quadro/gpu-accelerated/pdf/ProGraphicsLineCard_ME.pdf#page=2
+
+Run normally with RUN-SHORTSFLOW.cmd.
+The saved CPU-model profile is used automatically, including after a drive-letter change.
