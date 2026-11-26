@@ -2,7 +2,7 @@ import ast
 import re
 from pathlib import Path
 
-p = Path('E:/shortsflow/venv/Lib/site-packages/shortsflow/settings.py')
+p = Path(__file__).resolve().parents[1] / 'payload/venv/Lib/site-packages/shortsflow/settings.py'
 tree = ast.parse(p.read_text(encoding='utf-8'))
 node = next(n for n in tree.body if isinstance(n, ast.FunctionDef) and n.name == 'youtube_description')
 ns = {'re': re}
