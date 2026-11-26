@@ -1,10 +1,13 @@
-param([ValidateSet('webui','doctor','cli')][string]$Mode = 'webui', [Parameter(ValueFromRemainingArguments=$true)][string[]]$CliArgs)
+﻿param([ValidateSet('webui','doctor','cli')][string]$Mode = 'webui', [Parameter(ValueFromRemainingArguments=$true)][string[]]$CliArgs)
 $ErrorActionPreference = 'Stop'
 $root = $PSScriptRoot
 Set-Location -LiteralPath $root
 foreach ($folder in @('temp','logs','models\ollama','models\torch','models\huggingface','cache','workspace')) {
     New-Item -ItemType Directory -Force -Path (Join-Path $root $folder) | Out-Null
 }
+# Set Pakistan timezone and request Windows clock synchronization on every start.
+$clockScript=Join-Path $root 'Sync-Pakistan-Time.ps1'
+if(Test-Path -LiteralPath $clockScript){ & $clockScript }
 if ($Mode -eq 'webui') { $PID | Set-Content -LiteralPath (Join-Path $root 'logs/ui.pid') }
 if (-not $env:SHORTSFLOW_FAST_MODE) { $env:SHORTSFLOW_FAST_MODE = '1' }
 $env:SHORTSFLOW_HOME = Join-Path $root 'workspace'
