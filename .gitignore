@@ -16,3 +16,5 @@
 !/tests/
 !/tests/**
 !/Build-Update.ps1
+!/Rollback-ShortsFlow.ps1
+!/ROLLBACK-SHORTSFLOW.cmd

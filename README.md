@@ -91,3 +91,18 @@ Upstream: <https://github.com/ghost1412/shortsflow>.
 Copied/modified upstream source is MIT licensed; see LICENSE and NOTICE.txt.
 This repository is not the upstream ShortsFlow project.
 
+
+## Project publishing layout and rollback (2026.11.26.4)
+
+The Publish screen now groups videos by project. Select a project, then edit
+each video's title, description and tags beside its preview. Each card has
+its own Preview upload, Publish now and Schedule buttons and upload status.
+Choose platforms, channel and visibility once above the cards. Processing
+segments are excluded. The upload queue stays below the cards.
+
+To return to the code before the last update: let active jobs finish, close
+ShortsFlow with STOP-SHORTSFLOW.cmd, then run ROLLBACK-SHORTSFLOW.cmd in the
+installed folder. It restores the newest code backup and restarts the app.
+Models, videos, login and saved schedules are preserved. This restores code;
+it cannot undo videos already uploaded to YouTube. Avoid clicking rollback
+repeatedly: each restore also saves the version it replaces.

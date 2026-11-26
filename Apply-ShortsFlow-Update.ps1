@@ -59,6 +59,8 @@ $running=@(Get-CimInstance Win32_Process -Filter "Name='python.exe'" -ErrorActio
 if($running.Count){throw 'A video is processing. Wait for it to finish, or stop it in ShortsFlow, then update. No files changed.'}
 $backup=ChildPath $InstallRoot ('update-backups/'+(Get-Date -Format 'yyyyMMdd-HHmmss')+'-'+[Guid]::NewGuid().ToString('N').Substring(0,8))
 New-Item -ItemType Directory -Force -Path $backup | Out-Null
+$oldVersion=Join-Path $InstallRoot 'UPDATE-VERSION.json'
+if(Test-Path -LiteralPath $oldVersion){Copy-Item -LiteralPath $oldVersion -Destination (Join-Path $backup 'previous-version.json')}
 foreach($item in $items){
  if($item.existed){
   $copy=ChildPath $backup $item.relative
