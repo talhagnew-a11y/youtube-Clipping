@@ -9,7 +9,7 @@ $rootFiles=@('Sync-Pakistan-Time.ps1','FIX-PAKISTAN-TIME.cmd','REFRESH-UPDATE-LO
 foreach($name in $rootFiles){Copy-Item -LiteralPath (Join-Path $InstallRoot $name) -Destination (Join-Path $payload $name) -Force}
 foreach($name in @('Apply-ShortsFlow-Update.ps1','Update-ShortsFlow.ps1','UPDATE-SHORTSFLOW.cmd','UPDATE-FROM-ZIP.cmd')){Copy-Item -LiteralPath (Join-Path $repo $name) -Destination (Join-Path $payload $name) -Force}
 foreach($name in @('gpu-test.py','compare-cpu-intel.py','portable-check.py')){Copy-Item -LiteralPath (Join-Path $InstallRoot ('tools/'+$name)) -Destination (Join-Path $payload ('tools/'+$name)) -Force}
-foreach($name in @('engine/analysis.py','engine/script_gen.py','engine/remotion_renderer.py','engine/video_gen.py','engine/portable_fast.py','engine/portable_encoder.py','shortsflow/_main.py','shortsflow/webui.py','shortsflow/settings.py','shortsflow/schedule.py')){
+foreach($name in @('engine/analysis.py','engine/script_gen.py','engine/remotion_renderer.py','engine/video_gen.py','engine/portable_fast.py','engine/portable_encoder.py','shortsflow/_main.py','shortsflow/webui.py','shortsflow/settings.py','shortsflow/schedule.py','shortsflow/hashtag_research.py','shortsflow/full_editor.py')){
  Copy-Item -LiteralPath (Join-Path $InstallRoot ('venv/Lib/site-packages/'+$name)) -Destination (Join-Path $payload ('venv/Lib/site-packages/'+$name)) -Force
 }
 Copy-Item -LiteralPath (Join-Path $repo 'LICENSE') -Destination (Join-Path $payload 'LICENSE-ShortsFlow.txt') -Force

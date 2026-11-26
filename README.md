@@ -106,3 +106,34 @@ installed folder. It restores the newest code backup and restarts the app.
 Models, videos, login and saved schedules are preserved. This restores code;
 it cannot undo videos already uploaded to YouTube. Avoid clicking rollback
 repeatedly: each restore also saves the version it replaces.
+
+## Full video / Creative Commons and shared hashtag research (2026.11.27.1)
+
+Select **Full video / Creative Commons** for a complete video of up to 15 minutes.
+Choose a downloaded local file, title and description. For a CC source, enter
+its original creator, source URL and actual license URL. Confirm your intended
+editing/upload is permitted. Attribution is saved in the upload description.
+Keep start at 0 and end blank to preserve the whole video. Automatic subtitles
+use local Whisper; alternatively select an SRT file with the source timings.
+Sentence and word captions are supported. Timed explanation notes use
+`00:30 | 00:45 | My useful explanation` (times in the edited output).
+Optional trim, speed, sound volume/mute, logo and label are available.
+Try **Make 15-second preview**, then **Export full video**. **Open Publish page**
+selects the latest project so you can upload or schedule it through the normal
+YouTube connection. No upload is triggered just by exporting the full video.
+Basic re-encoding/subtitles/branding do not guarantee monetization eligibility.
+
+The **Keyword hashtags — for shorts and full videos** box is shared across
+screens. Research a topic (for example Minecraft gameplay or GTA 6), review
+and edit the chosen tags. Public YouTube search suggestions and matching Google
+Trends RSS topics are labeled separately; there is no claimed YouTube hashtag
+ranking or search volume. With no network response only the base keyword is
+suggested and the source failure is shown. Only the keyword goes online.
+Chosen tags are saved before new Shorts auto-upload, including plan-first and
+continued runs. Existing short review cards and all Publish video cards have
+an apply button. Full-video exports have their own **Use chosen keyword hashtags**
+button. Applied tags persist in local metadata and appear in descriptions on
+future uploads. They do not edit videos that were already uploaded to YouTube.
+
+The update remains lightweight. Existing models and YouTube sign-in are reused.
+Rollback is available with ROLLBACK-SHORTSFLOW.cmd after closing the app.
