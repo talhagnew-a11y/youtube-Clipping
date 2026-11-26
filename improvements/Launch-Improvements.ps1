@@ -1,9 +1,15 @@
-param([switch]$CheckOnly)
+﻿param([switch]$CheckOnly)
 $ErrorActionPreference='Stop'
 $addon=$PSScriptRoot
 $root=Split-Path -Parent $addon
 $marker=Join-Path $addon 'state/installed.json'
 if(-not(Test-Path -LiteralPath $marker) -or -not (Get-Content -LiteralPath $marker -Raw | ConvertFrom-Json).enabled){throw 'Optional improvements are not enabled. Use INSTALL-IMPROVEMENTS.cmd or UPDATE-IMPROVEMENTS.cmd first.'}
+$manifest=Get-Content -LiteralPath (Join-Path $addon 'improvement-manifest.json') -Raw | ConvertFrom-Json
+foreach($entry in $manifest.base_files){
+ $path=[IO.Path]::GetFullPath((Join-Path $root $entry.path))
+ if(-not $path.StartsWith([IO.Path]::GetFullPath($root)+[IO.Path]::DirectorySeparatorChar,[StringComparison]::OrdinalIgnoreCase)){throw 'Base path leaves the installation.'}
+ if(-not(Test-Path -LiteralPath $path) -or (Get-FileHash -LiteralPath $path).Hash -ne $entry.sha256){throw 'The stable base changed. Update the optional package to a compatible version before test mode.'}
+}
 $running=@(Get-CimInstance Win32_Process -Filter "Name='python.exe'" | Where-Object {$_.ExecutablePath -and $_.ExecutablePath.StartsWith($root+[IO.Path]::DirectorySeparatorChar,[StringComparison]::OrdinalIgnoreCase) -and $_.CommandLine -match 'webui|shortsflow_improvements[.]bootstrap'})
 if($running.Count){throw 'ShortsFlow is already running. Let jobs finish, then use the matching STOP command before starting test mode.'}
 $env:SHORTSFLOW_IMPROVEMENTS_STATE=Join-Path $addon 'state'

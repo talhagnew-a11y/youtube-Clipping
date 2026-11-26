@@ -1,4 +1,4 @@
-param([string]$InstallRoot,[string]$PackageRoot=$PSScriptRoot,[switch]$CheckOnly)
+﻿param([string]$InstallRoot,[string]$PackageRoot=$PSScriptRoot,[switch]$CheckOnly)
 $ErrorActionPreference='Stop'
 if(-not $InstallRoot){
  $candidate=Split-Path -Parent $PSScriptRoot
@@ -59,6 +59,9 @@ $backup=Join-Path $targetRoot ('backups/'+(Get-Date -Format 'yyyyMMdd-HHmmss')+'
 New-Item -ItemType Directory -Force -Path $backup | Out-Null
 $previous=$null
 if(Test-Path -LiteralPath $installed){$previous=Get-Content -LiteralPath $installed -Raw | ConvertFrom-Json;Copy-Item -LiteralPath $installed -Destination (Join-Path $backup 'installed.json')}
+$installedManifest=Join-Path $targetRoot 'improvement-manifest.json'
+$oldManifest=Join-Path $backup 'improvement-manifest.json'
+if(Test-Path -LiteralPath $installedManifest){Copy-Item -LiteralPath $installedManifest -Destination $oldManifest}
 foreach($file in $files){
  if($file.existed){$saved=SafeChild $backup $file.relative;New-Item -ItemType Directory -Force -Path (Split-Path -Parent $saved) | Out-Null;Copy-Item -LiteralPath $file.target -Destination $saved;$file.backup=$saved}
 }
@@ -77,6 +80,8 @@ try{
  @{enabled=$true;version=$manifest.version;base_version=$baseVersion;backup=$backup;previous=($null -ne $previous);installed_at=(Get-Date -Format o)} | ConvertTo-Json | Set-Content -LiteralPath $installed -Encoding UTF8
 }catch{
  for($i=$applied.Count-1;$i -ge 0;$i--){$file=$applied[$i];if($file.existed){Copy-Item -LiteralPath $file.backup -Destination $file.target -Force}else{Remove-Item -LiteralPath $file.target -Force}}
+ if(Test-Path -LiteralPath $oldManifest){Copy-Item -LiteralPath $oldManifest -Destination $installedManifest -Force}
+ elseif(Test-Path -LiteralPath $installedManifest){Remove-Item -LiteralPath $installedManifest -Force}
  if($previous){Copy-Item -LiteralPath (Join-Path $backup 'installed.json') -Destination $installed -Force}
  throw
 }

@@ -1,108 +1,6 @@
 {
   "schema": 1,
-  "files": [
-    {
-      "bytes": 6298,
-      "path": "Apply-Improvements.ps1",
-      "sha256": "46214034f39b2de7d81198b84e7f7b3d1f12475f3b14948ef246a891f1e45527"
-    },
-    {
-      "bytes": 2899,
-      "path": "HELP.txt",
-      "sha256": "021bd6177b9fc518c741ce3b4a462f31e291b1f2de5fa6be30b9876f7618fe43"
-    },
-    {
-      "bytes": 102,
-      "path": "INSTALL-IMPROVEMENTS.cmd",
-      "sha256": "924fd4b0e2ced9f8b2e22db70c74133780c6ae3cda7256cd1bdc96359a6fb851"
-    },
-    {
-      "bytes": 2137,
-      "path": "Launch-Improvements.ps1",
-      "sha256": "c83aff59a2ce7c52160418946870654692a77bc4d69fbca20dd49ee90e7f5faf"
-    },
-    {
-      "bytes": 105,
-      "path": "ROLLBACK-IMPROVEMENTS.cmd",
-      "sha256": "ef33d140a9c268a24ada900fc14aa7722e70e91bcbe6931b69fcaa9398e4a921"
-    },
-    {
-      "bytes": 2234,
-      "path": "Rollback-Improvements.ps1",
-      "sha256": "e8f8be2a385bbae064b770e11f376db5170f572a45e5ab2b39ca0f627aa531b5"
-    },
-    {
-      "bytes": 103,
-      "path": "RUN-IMPROVEMENTS.cmd",
-      "sha256": "b510426faa114ea659a02bbef118d339c6e67185b8b74c41430c084d68886adc"
-    },
-    {
-      "bytes": 25,
-      "path": "runtime/shortsflow_improvements/__init__.py",
-      "sha256": "af7de1b29729ce690893730fa787c41f30ffb8bb22229f5346b31688bd976e57"
-    },
-    {
-      "bytes": 10620,
-      "path": "runtime/shortsflow_improvements/addon.py",
-      "sha256": "a28aeab5ecdfba8700c02e129778cae2b54840cce40f2b9a546bb7bf0657a76b"
-    },
-    {
-      "bytes": 117,
-      "path": "runtime/shortsflow_improvements/bootstrap.py",
-      "sha256": "8186682418cb2d592398a30ec7bcd3d059624aae7c4e756fdb7cbf2cf3bbd57f"
-    },
-    {
-      "bytes": 2692,
-      "path": "runtime/shortsflow_improvements/drafts.py",
-      "sha256": "02ecc2822aabed502bcbca906e0ec7cd26fc0a58888034faab5fcd36b83a1e78"
-    },
-    {
-      "bytes": 1887,
-      "path": "runtime/shortsflow_improvements/moments.py",
-      "sha256": "a23051b5f0ecce59bf02490917b3c9353e8661972681dd1914c54fd44cf78a37"
-    },
-    {
-      "bytes": 137,
-      "path": "runtime/shortsflow_improvements/pipeline.py",
-      "sha256": "b46c1b5b2fd01f5eb16a4fa31f2b113bcd5099bd1ce7a1a60dbf001af735a579"
-    },
-    {
-      "bytes": 13530,
-      "path": "runtime/shortsflow_improvements/queue.py",
-      "sha256": "7ffddc6a91b0ad4796a27b6fdcbbd564a79261b6abdd1178e3ccb412c081eab4"
-    },
-    {
-      "bytes": 7178,
-      "path": "runtime/shortsflow_improvements/subtitles.py",
-      "sha256": "ab73e82fb3026f9a48ffe600fc9bba70c00bb6778e28024eb46c8e267de3744f"
-    },
-    {
-      "bytes": 320,
-      "path": "runtime/shortsflow_improvements/worker.py",
-      "sha256": "26d18352837383b7656a3758beca900d02c666ba0ecd116a68b07c64a1b933d7"
-    },
-    {
-      "bytes": 101,
-      "path": "STOP-IMPROVEMENTS.cmd",
-      "sha256": "2df66f23d5429ce6e94193d73a658eb8e499dec0f26247bbbbe322dfcb37fa17"
-    },
-    {
-      "bytes": 551,
-      "path": "Stop-Improvements.ps1",
-      "sha256": "478cfb446008d461b1b6096b3325451398820641c89f7c6ec01a250396b456fd"
-    },
-    {
-      "bytes": 103,
-      "path": "UPDATE-IMPROVEMENTS.cmd",
-      "sha256": "3a943878e4451c7ae7424bd39b3de3b0cb07c150c6a6c9b5f9c26013e5e0a4f1"
-    },
-    {
-      "bytes": 5653,
-      "path": "Update-Improvements.ps1",
-      "sha256": "3b2d81ef3c1439898302e367b45d8b9b3db575779f2c4a89b028669401585b3d"
-    }
-  ],
-  "version": "2026.11.27.1",
+  "version": "2026.11.27.2",
   "base_files": [
     {
       "path": "Portable.ps1",
@@ -126,5 +24,107 @@
     }
   ],
   "kind": "optional-improvements",
-  "required_base": "2026.11.27.1"
+  "required_base": "2026.11.27.1",
+  "files": [
+    {
+      "sha256": "21ba85803fc15dc6881094edd06ef7dcf3d05013e2ddf5f54810984b674e7405",
+      "bytes": 6853,
+      "path": "Apply-Improvements.ps1"
+    },
+    {
+      "sha256": "24c31a7599eb075ea4ff99dddee6b10c8146f0358c44679180c3251dc08ad725",
+      "bytes": 2899,
+      "path": "HELP.txt"
+    },
+    {
+      "sha256": "924fd4b0e2ced9f8b2e22db70c74133780c6ae3cda7256cd1bdc96359a6fb851",
+      "bytes": 102,
+      "path": "INSTALL-IMPROVEMENTS.cmd"
+    },
+    {
+      "sha256": "cff63ac129696d8f42f2caff23ce4928828b4d3d34fd96ff73fd6de2d15b05b0",
+      "bytes": 2760,
+      "path": "Launch-Improvements.ps1"
+    },
+    {
+      "sha256": "ef33d140a9c268a24ada900fc14aa7722e70e91bcbe6931b69fcaa9398e4a921",
+      "bytes": 105,
+      "path": "ROLLBACK-IMPROVEMENTS.cmd"
+    },
+    {
+      "sha256": "4f11c729b93315b50944e777d3631ed9d56f5c7f0b9fb4112d7984685bfdd4d8",
+      "bytes": 2509,
+      "path": "Rollback-Improvements.ps1"
+    },
+    {
+      "sha256": "b510426faa114ea659a02bbef118d339c6e67185b8b74c41430c084d68886adc",
+      "bytes": 103,
+      "path": "RUN-IMPROVEMENTS.cmd"
+    },
+    {
+      "sha256": "270f18775b6192ddf42c958b8043905547500b2942ce3bcf19a4ffef1cd72c1d",
+      "bytes": 26,
+      "path": "runtime/shortsflow_improvements/__init__.py"
+    },
+    {
+      "sha256": "a28aeab5ecdfba8700c02e129778cae2b54840cce40f2b9a546bb7bf0657a76b",
+      "bytes": 10620,
+      "path": "runtime/shortsflow_improvements/addon.py"
+    },
+    {
+      "sha256": "8186682418cb2d592398a30ec7bcd3d059624aae7c4e756fdb7cbf2cf3bbd57f",
+      "bytes": 117,
+      "path": "runtime/shortsflow_improvements/bootstrap.py"
+    },
+    {
+      "sha256": "02ecc2822aabed502bcbca906e0ec7cd26fc0a58888034faab5fcd36b83a1e78",
+      "bytes": 2692,
+      "path": "runtime/shortsflow_improvements/drafts.py"
+    },
+    {
+      "sha256": "a23051b5f0ecce59bf02490917b3c9353e8661972681dd1914c54fd44cf78a37",
+      "bytes": 1887,
+      "path": "runtime/shortsflow_improvements/moments.py"
+    },
+    {
+      "sha256": "b46c1b5b2fd01f5eb16a4fa31f2b113bcd5099bd1ce7a1a60dbf001af735a579",
+      "bytes": 137,
+      "path": "runtime/shortsflow_improvements/pipeline.py"
+    },
+    {
+      "sha256": "7ffddc6a91b0ad4796a27b6fdcbbd564a79261b6abdd1178e3ccb412c081eab4",
+      "bytes": 13530,
+      "path": "runtime/shortsflow_improvements/queue.py"
+    },
+    {
+      "sha256": "ab73e82fb3026f9a48ffe600fc9bba70c00bb6778e28024eb46c8e267de3744f",
+      "bytes": 7178,
+      "path": "runtime/shortsflow_improvements/subtitles.py"
+    },
+    {
+      "sha256": "26d18352837383b7656a3758beca900d02c666ba0ecd116a68b07c64a1b933d7",
+      "bytes": 320,
+      "path": "runtime/shortsflow_improvements/worker.py"
+    },
+    {
+      "sha256": "2df66f23d5429ce6e94193d73a658eb8e499dec0f26247bbbbe322dfcb37fa17",
+      "bytes": 101,
+      "path": "STOP-IMPROVEMENTS.cmd"
+    },
+    {
+      "sha256": "478cfb446008d461b1b6096b3325451398820641c89f7c6ec01a250396b456fd",
+      "bytes": 551,
+      "path": "Stop-Improvements.ps1"
+    },
+    {
+      "sha256": "3a943878e4451c7ae7424bd39b3de3b0cb07c150c6a6c9b5f9c26013e5e0a4f1",
+      "bytes": 103,
+      "path": "UPDATE-IMPROVEMENTS.cmd"
+    },
+    {
+      "sha256": "3b2d81ef3c1439898302e367b45d8b9b3db575779f2c4a89b028669401585b3d",
+      "bytes": 5653,
+      "path": "Update-Improvements.ps1"
+    }
+  ]
 }

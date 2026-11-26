@@ -1,4 +1,4 @@
-param([string]$RepositoryRoot=(Split-Path -Parent $PSScriptRoot))
+﻿param([string]$RepositoryRoot=(Split-Path -Parent $PSScriptRoot))
 $ErrorActionPreference='Stop'
 $base=Join-Path ([IO.Path]::GetTempPath()) ('shortsflow-optional-package-test-'+[Guid]::NewGuid().ToString('N'))
 $install=Join-Path $base 'installed'
@@ -7,6 +7,9 @@ New-Item -ItemType Directory -Force -Path $install,$package,(Join-Path $install 
 $source=Join-Path $RepositoryRoot 'improvements'
 Copy-Item -Path (Join-Path $source '*') -Destination $package -Recurse
 $manifest=Get-Content -LiteralPath (Join-Path $package 'improvement-manifest.json') -Raw | ConvertFrom-Json
+$initialOptionalVersion=$manifest.version
+$v=[version]$initialOptionalVersion
+$laterOptionalVersion=('{0}.{1}.{2}.{3}' -f $v.Major,$v.Minor,$v.Build,($v.Revision+1))
 $hashes=@{}
 foreach($file in $manifest.base_files){
  $target=Join-Path $install $file.path
@@ -59,19 +62,20 @@ VerifyStable
 $runtime=Join-Path $package 'runtime/shortsflow_improvements/__init__.py'
 $original=Get-Content -LiteralPath $runtime -Raw
 Add-Content -LiteralPath $runtime -Value '# simulated optional revision 2'
-$manifest.version='2026.11.27.2'
+$manifest.version=$laterOptionalVersion
 foreach($entry in $manifest.files){if($entry.path -eq 'runtime/shortsflow_improvements/__init__.py'){$entry.bytes=(Get-Item -LiteralPath $runtime).Length;$entry.sha256=(Get-FileHash -LiteralPath $runtime).Hash}}
 $manifest | ConvertTo-Json -Depth 6 | Set-Content -LiteralPath (Join-Path $package 'improvement-manifest.json')
 $lock=[IO.File]::Open((Join-Path $installed 'runtime/shortsflow_improvements/__init__.py'),[IO.FileMode]::Open,[IO.FileAccess]::Read,[IO.FileShare]::Read)
 $rejected=$false
 try{try{& $apply -InstallRoot $install -PackageRoot $package}catch{$rejected=$true}}finally{$lock.Dispose()}
 Assert $rejected 'Locked optional file did not reject installation.'
-Assert ((Get-Content -LiteralPath $marker -Raw | ConvertFrom-Json).version -eq '2026.11.27.1') 'Failed optional update changed its version.'
+Assert ((Get-Content -LiteralPath $marker -Raw | ConvertFrom-Json).version -eq $initialOptionalVersion) 'Failed optional update changed its version.'
 VerifyStable
 & $apply -InstallRoot $install -PackageRoot $package
-Assert ((Get-Content -LiteralPath $marker -Raw | ConvertFrom-Json).version -eq '2026.11.27.2') 'Optional v2 missing.'
+Assert ((Get-Content -LiteralPath $marker -Raw | ConvertFrom-Json).version -eq $laterOptionalVersion) 'Optional v2 missing.'
 & (Join-Path $installed 'Rollback-Improvements.ps1')
-Assert ((Get-Content -LiteralPath $marker -Raw | ConvertFrom-Json).version -eq '2026.11.27.1') 'Previous optional version not restored.'
+Assert ((Get-Content -LiteralPath $marker -Raw | ConvertFrom-Json).version -eq $initialOptionalVersion) 'Previous optional version not restored.'
+Assert ((Get-Content -LiteralPath (Join-Path $installed 'improvement-manifest.json') -Raw | ConvertFrom-Json).version -eq $initialOptionalVersion) 'Previous optional manifest not restored.'
 Assert ((Get-Content -LiteralPath (Join-Path $installed 'runtime/shortsflow_improvements/__init__.py') -Raw) -eq $original) 'Previous optional code not restored.'
 VerifyStable
 $rejected=$false
