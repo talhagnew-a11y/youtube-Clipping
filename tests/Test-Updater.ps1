@@ -56,3 +56,12 @@ Assert $rolledBack 'Locked destination did not trigger rollback.'
 Assert ((Get-Content -LiteralPath (Join-Path $install 'Portable.ps1') -Raw).Trim() -eq 'new script') 'Rollback did not restore previous code.'
 Write-Output 'PASS: install, backup, user-data preservation, checksum rejection, traversal rejection, protected paths, version guard, and rollback.'
 Write-Output "Temporary test fixtures: $base"
+
+$authPath=Join-Path $base 'dummy-auth.dpapi'
+$dummy=ConvertTo-SecureString 'dummy-test-only' -AsPlainText -Force
+$dummy | ConvertFrom-SecureString | Set-Content -LiteralPath $authPath -Encoding Ascii
+$restored=(Get-Content -LiteralPath $authPath -Raw).Trim() | ConvertTo-SecureString
+$ptr=[Runtime.InteropServices.Marshal]::SecureStringToBSTR($restored)
+try{Assert ([Runtime.InteropServices.Marshal]::PtrToStringBSTR($ptr) -eq 'dummy-test-only') 'Encrypted login could not be reloaded.'}
+finally{[Runtime.InteropServices.Marshal]::ZeroFreeBSTR($ptr)}
+Write-Output 'PASS: encrypted Windows login round-trip, including file newline.'

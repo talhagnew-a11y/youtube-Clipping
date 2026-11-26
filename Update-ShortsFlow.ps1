@@ -19,7 +19,7 @@ if($PackageZip){
  $saved=Join-Path $authDir ($id+'.dpapi')
  $secure=$null
  if(-not $RefreshLogin -and (Test-Path -LiteralPath $saved)){
-  try{$secure=Get-Content -LiteralPath $saved -Raw | ConvertTo-SecureString}catch{}
+  try{$secure=(Get-Content -LiteralPath $saved -Raw).Trim() | ConvertTo-SecureString}catch{}
  }
  if(-not $secure){
   Write-Host 'This GitHub repo is private. One-time access is needed on this Windows account.'
@@ -45,3 +45,4 @@ if(-not $manifest){throw 'This ZIP is not a ShortsFlow update package.'}
 $apply=Join-Path $manifest.DirectoryName 'Apply-ShortsFlow-Update.ps1'
 if(-not(Test-Path -LiteralPath $apply)){throw 'Update installer is missing.'}
 & $apply -InstallRoot $root -PackageRoot $manifest.DirectoryName -CheckOnly:$CheckOnly -NoRestart:$NoRestart
+
