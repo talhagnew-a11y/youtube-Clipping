@@ -1,4 +1,4 @@
-param([string]$PackageZip,[switch]$CheckOnly,[switch]$NoRestart,[switch]$RefreshLogin)
+﻿param([string]$PackageZip,[switch]$CheckOnly,[switch]$NoRestart,[switch]$RefreshLogin)
 $ErrorActionPreference='Stop'
 $ProgressPreference='SilentlyContinue'
 [Net.ServicePointManager]::SecurityProtocol=[Net.SecurityProtocolType]::Tls12
@@ -9,6 +9,17 @@ New-Item -ItemType Directory -Force -Path $stage | Out-Null
 if($PackageZip){
  Copy-Item -LiteralPath $PackageZip -Destination (Join-Path $stage 'update.zip')
 }else{
+ $publicDownload=$false
+ if(-not $RefreshLogin){
+  try{
+   $publicHeaders=@{Accept='application/vnd.github+json';'User-Agent'='ShortsFlow-Portable-Updater'}
+   $null=Invoke-RestMethod -Uri 'https://api.github.com/repos/talhagnew-a11y/youtube-Clipping' -Headers $publicHeaders -TimeoutSec 20
+   Invoke-WebRequest -Uri 'https://api.github.com/repos/talhagnew-a11y/youtube-Clipping/zipball/main' -Headers $publicHeaders -OutFile (Join-Path $stage 'update.zip') -UseBasicParsing -TimeoutSec 180
+   $publicDownload=$true
+   Write-Host 'Downloaded public repository update. No token needed.'
+  }catch{}
+ }
+ if(-not $publicDownload){
  $authDir=Join-Path $root '.update-auth'
  New-Item -ItemType Directory -Force -Path $authDir | Out-Null
  $identity=[Security.Principal.WindowsIdentity]::GetCurrent().User.Value
@@ -30,14 +41,32 @@ if($PackageZip){
  $ptr=[Runtime.InteropServices.Marshal]::SecureStringToBSTR($secure)
  try{$token=[Runtime.InteropServices.Marshal]::PtrToStringBSTR($ptr)}
  finally{[Runtime.InteropServices.Marshal]::ZeroFreeBSTR($ptr)}
+ $token=$token.Trim()
+ $secure=ConvertTo-SecureString $token -AsPlainText -Force
  if(-not $token){throw 'No GitHub token was supplied.'}
+ if($token -match '\s'){throw 'The token contains spaces or newlines. Paste only the token, without the label, quotes or Markdown.'}
  $headers=@{Authorization=('Bearer '+$token);Accept='application/vnd.github+json';'User-Agent'='ShortsFlow-Portable-Updater'}
  try{
-  Invoke-WebRequest -Uri 'https://api.github.com/repos/talhagnew-a11y/youtube-Clipping/zipball/main' -Headers $headers -OutFile (Join-Path $stage 'update.zip') -UseBasicParsing
+  # A small authenticated request distinguishes permission failures from ZIP network failures.
+  $null=Invoke-RestMethod -Uri 'https://api.github.com/repos/talhagnew-a11y/youtube-Clipping' -Headers $headers -TimeoutSec 30
+  Invoke-WebRequest -Uri 'https://api.github.com/repos/talhagnew-a11y/youtube-Clipping/zipball/main' -Headers $headers -OutFile (Join-Path $stage 'update.zip') -UseBasicParsing -TimeoutSec 180
  }catch{
-  throw 'GitHub download failed. Check internet, repository access and token expiry. Use the ZIP update option if preferred.'
+  $status=0
+  if($_.Exception.Response){try{$status=[int]$_.Exception.Response.StatusCode}catch{}}
+  $reason=switch($status){
+   401 {'Token invalid or expired. Generate a new token and run REFRESH-UPDATE-LOGIN.cmd.'}
+   403 {'GitHub denied access. Check Contents: Read-only, token approval/expiry and GitHub rate limits.'}
+   404 {'This token cannot see the private repository. Resource owner must be talhagnew-a11y; select ONLY youtube-Clipping and Contents: Read-only.'}
+   429 {'GitHub rate limit reached. Wait and try again.'}
+   default {'Connection/download failed. Check internet, VPN/proxy, firewall and this PC clock. Try UPDATE-FROM-ZIP.cmd.'}
+  }
+  # Never print the exception/request: it may contain an Authorization header.
+  $code=if($status){"HTTP $status"}else{'network/TLS error'}
+  throw "GitHub update failed ($code). $reason No app files were changed."
  }finally{$headers=$null;$token=$null}
+
  $secure | ConvertFrom-SecureString | Set-Content -LiteralPath $saved -Encoding Ascii
+ }
 }
 Expand-Archive -LiteralPath (Join-Path $stage 'update.zip') -DestinationPath (Join-Path $stage 'package')
 $manifest=Get-ChildItem -LiteralPath (Join-Path $stage 'package') -Filter update-manifest.json -File -Recurse | Select-Object -First 1

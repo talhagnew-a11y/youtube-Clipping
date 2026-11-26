@@ -18,3 +18,5 @@
 !/Build-Update.ps1
 !/Rollback-ShortsFlow.ps1
 !/ROLLBACK-SHORTSFLOW.cmd
+
+!/REFRESH-UPDATE-LOGIN.cmd
