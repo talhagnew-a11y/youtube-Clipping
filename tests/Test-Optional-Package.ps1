@@ -7,6 +7,7 @@ New-Item -ItemType Directory -Force -Path $install,$package,(Join-Path $install 
 $source=Join-Path $RepositoryRoot 'improvements'
 Copy-Item -Path (Join-Path $source '*') -Destination $package -Recurse
 $manifest=Get-Content -LiteralPath (Join-Path $package 'improvement-manifest.json') -Raw | ConvertFrom-Json
+$stableVersion=$manifest.required_base
 $initialOptionalVersion=$manifest.version
 $v=[version]$initialOptionalVersion
 $laterOptionalVersion=('{0}.{1}.{2}.{3}' -f $v.Major,$v.Minor,$v.Build,($v.Revision+1))
@@ -17,7 +18,7 @@ foreach($file in $manifest.base_files){
  Copy-Item -LiteralPath (Join-Path (Join-Path $RepositoryRoot 'payload') $file.path) -Destination $target
  $hashes[$file.path]=(Get-FileHash -LiteralPath $target).Hash
 }
-Set-Content -LiteralPath (Join-Path $install 'UPDATE-VERSION.json') -Value '{"version":"2026.11.27.1"}'
+Set-Content -LiteralPath (Join-Path $install 'UPDATE-VERSION.json') -Value ('{"version":"'+$stableVersion+'"}')
 Set-Content -LiteralPath (Join-Path $install 'venv/Lib/site-packages/shortsflow/__init__.py') -Value '__version__ = "0.9.4"'
 Set-Content -LiteralPath (Join-Path $install 'workspace/schedule.json') -Value '[{"id":"saved-job","status":"pending","at":"2026-12-01 09:00"}]'
 Set-Content -LiteralPath (Join-Path $install 'workspace/token.json') -Value 'login sentinel'
@@ -26,7 +27,7 @@ $apply=Join-Path $source 'Apply-Improvements.ps1'
 function Assert($Condition,$Message){if(-not $Condition){throw $Message}}
 function VerifyStable {
  foreach($path in $hashes.Keys){Assert ((Get-FileHash -LiteralPath (Join-Path $install $path)).Hash -eq $hashes[$path]) ('Stable code changed: '+$path)}
- Assert ((Get-Content -LiteralPath (Join-Path $install 'UPDATE-VERSION.json') -Raw | ConvertFrom-Json).version -eq '2026.11.27.1') 'Normal update version changed.'
+ Assert ((Get-Content -LiteralPath (Join-Path $install 'UPDATE-VERSION.json') -Raw | ConvertFrom-Json).version -eq $stableVersion) 'Normal update version changed.'
  Assert ((Get-Content -LiteralPath (Join-Path $install 'workspace/token.json') -Raw).Trim() -eq 'login sentinel') 'Login changed.'
  Assert ((Get-Content -LiteralPath (Join-Path $install 'models/model.bin') -Raw).Trim() -eq 'model sentinel') 'Model changed.'
  Assert ((Get-Content -LiteralPath (Join-Path $install 'workspace/schedule.json') -Raw | ConvertFrom-Json)[0].id -eq 'saved-job') 'Schedule changed.'
@@ -41,7 +42,7 @@ Set-Content -LiteralPath (Join-Path $install 'UPDATE-VERSION.json') -Value '{"ve
 $rejected=$false
 try{& $apply -InstallRoot $install -PackageRoot $package -CheckOnly}catch{$rejected=$true}
 Assert $rejected 'Old stable base was accepted.'
-Set-Content -LiteralPath (Join-Path $install 'UPDATE-VERSION.json') -Value '{"version":"2026.11.27.1"}'
+Set-Content -LiteralPath (Join-Path $install 'UPDATE-VERSION.json') -Value ('{"version":"'+$stableVersion+'"}')
 function Get-CimInstance {param($ClassName,$Filter) return [pscustomobject]@{ExecutablePath=(Join-Path $install 'python/python.exe');CommandLine='python -m shortsflow_improvements.bootstrap';ProcessId=123}}
 $rejected=$false
 try{& $apply -InstallRoot $install -PackageRoot $package}catch{$rejected=$true}

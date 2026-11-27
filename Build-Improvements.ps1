@@ -1,4 +1,4 @@
-param([Parameter(Mandatory=$true)][string]$Version)
+﻿param([Parameter(Mandatory=$true)][string]$Version)
 $ErrorActionPreference='Stop'
 if($Version -notmatch '^\d{4}[.]\d{2}[.]\d{2}[.]\d+$'){throw 'Version format: YYYY.MM.DD.revision'}
 $folder=Join-Path $PSScriptRoot 'improvements'
@@ -11,7 +11,7 @@ $files=@($paths | Sort-Object | ForEach-Object {
  if($file.Length -gt 2MB){throw 'Heavy optional code file refused.'}
  @{path=$file.FullName.Substring($folder.Length+1).Replace([char]92,[char]47);bytes=$file.Length;sha256=(Get-FileHash -LiteralPath $file.FullName).Hash.ToLowerInvariant()}
 })
-$base=@('Portable.ps1','venv/Lib/site-packages/shortsflow/webui.py','venv/Lib/site-packages/shortsflow/settings.py','venv/Lib/site-packages/shortsflow/schedule.py','venv/Lib/site-packages/shortsflow/full_editor.py') | ForEach-Object {
+$base=@('Portable.ps1','venv/Lib/site-packages/shortsflow/webui.py','venv/Lib/site-packages/shortsflow/settings.py','venv/Lib/site-packages/shortsflow/schedule.py','venv/Lib/site-packages/shortsflow/full_editor.py','venv/Lib/site-packages/shortsflow/source_info.py') | ForEach-Object {
  @{path=$_;sha256=(Get-FileHash -LiteralPath (Join-Path (Join-Path $PSScriptRoot 'payload') $_)).Hash.ToLowerInvariant()}
 }
 $json=@{schema=1;kind='optional-improvements';version=$Version;required_base=$normal.version;base_files=@($base);files=$files} | ConvertTo-Json -Depth 6

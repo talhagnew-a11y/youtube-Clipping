@@ -184,7 +184,7 @@ class OptionalFeatures(unittest.TestCase):
         normal=json.loads((REPO/'update-manifest.json').read_text(encoding='utf-8-sig'))
         optional=json.loads((REPO/'improvements/improvement-manifest.json').read_text())
         self.assertFalse(any('improvements/' in item['target'] for item in normal['files']))
-        self.assertEqual(normal['version'],'2026.11.27.1')
+        self.assertEqual(optional['required_base'],normal['version'])
         self.assertEqual(optional['kind'],'optional-improvements')
         for item in optional['files']:
             content=(REPO/'improvements'/item['path']).read_bytes()

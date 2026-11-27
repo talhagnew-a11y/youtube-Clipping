@@ -140,7 +140,7 @@ Rollback is available with ROLLBACK-SHORTSFLOW.cmd after closing the app.
 
 ## OPTIONAL improvements: separate install/update/rollback folder
 
-The normal full-video/hashtag update is still **2026.11.27.1**. Its payload and
+The normal full-video/hashtag update is **2026.11.27.2**. Its payload and
 update-manifest are unchanged by the optional improvements. Running the normal
 updater never enables these tests.
 
@@ -170,3 +170,9 @@ drafts that require review. See improvements/HELP.txt for the workflow and limit
 Rollback restores code, not already uploaded videos or intentional saved edits.
 Normal mode does not enforce the optional queue cooldowns.
 On the first optional installation, its automatic upload queue starts PAUSED. Resume it in the optional dashboard only when ready to upload saved jobs.
+
+## YouTube source metadata autofill (2026.11.27.2)
+
+In Full video, paste the public source link into **YouTube source link (metadata only)** and click **Fetch source details**. The source title, creator, canonical link and reported license/reference are filled automatically. Existing custom upload title/description are preserved. The permission checkbox always resets for manual review. Supply your video file separately; this action downloads no video and uploads nothing. Missing/unavailable license information is left for manual checking; no CC version is invented. The actual License row is used, not unrelated description/music credits.
+
+Optional improvements remain a separate package (2026.11.27.3) requiring this normal update. Normal update/rollback commands remain unchanged.

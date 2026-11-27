@@ -53,3 +53,14 @@ with tempfile.TemporaryDirectory(prefix='shortsflow-full-ui-') as temp:
         save_video_tags(case,'Minecraft','Minecraft',str(root),description='Credit text',title='Case title')
         assert settings.default_details(str(case)) == ('Case title','Credit text\n\n#Minecraft',['Minecraft'])
 print('PASS: UI handler launches export worker, full output reaches Publish library, tags precede auto-upload, case tags persist')
+
+# Source lookup keeps custom publishing text and never grants permission.
+data = dict(title='Source title',author='Source creator',source_url='https://www.youtube.com/watch?v=wBVbxswlJ4A',license='Creative Commons Attribution license (reuse allowed)',license_url='https://www.youtube.com/t/creative_commons',is_cc=True)
+with patch.object(webui.subprocess,'run',return_value=type('Result',(),{'stdout':json.dumps({'ok':True,'details':data})})()):
+    fields=webui.fetch_source_fields(data['source_url'],'My custom title','My description')
+    assert len(fields)==10 and fields[:2]==('My custom title','My description')
+    assert fields[2:8]==('Source title','Source creator',data['source_url'],data['license_url'],True,False)
+with patch.object(webui.subprocess,'run',side_effect=TimeoutError('Timed out')):
+    fields=webui.fetch_source_fields(data['source_url'],'Keep title','Keep description')
+    assert fields[2:4]==('','') and fields[5:9]==('',False,False,{})
+print('PASS: source autofill preserves custom text, clears stale failed lookups, and requires manual permission')

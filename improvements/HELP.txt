@@ -1,6 +1,6 @@
-OPTIONAL IMPROVEMENTS - separate test package (2026.11.27.2)
+OPTIONAL IMPROVEMENTS - separate test package (2026.11.27.3)
 
-The NORMAL update remains version 2026.11.27.1 (full-video editor and hashtags).
+The NORMAL update is version 2026.11.27.2 (full-video editor and hashtags).
 Normal UPDATE-SHORTSFLOW.cmd does NOT install this optional folder.
 
 FIRST: install the normal update with repository-root INSTALL-UPDATE.cmd.

@@ -1,30 +1,31 @@
 {
-  "schema": 1,
-  "version": "2026.11.27.2",
   "base_files": [
     {
-      "path": "Portable.ps1",
-      "sha256": "9744d3056cf719d16b979d3bca402ab5f29bfeb7448e5c9cb250f6c753383e34"
+      "sha256": "9744d3056cf719d16b979d3bca402ab5f29bfeb7448e5c9cb250f6c753383e34",
+      "path": "Portable.ps1"
     },
     {
-      "path": "venv/Lib/site-packages/shortsflow/webui.py",
-      "sha256": "e45f1399e6241f3b1f268b9cf54c022658a0bfc4fb94137c7e7c40a8988fc845"
+      "sha256": "16f0edc5ece07fba72a4bd35454de2a69077498704da698a059cfecad1889e4f",
+      "path": "venv/Lib/site-packages/shortsflow/webui.py"
     },
     {
-      "path": "venv/Lib/site-packages/shortsflow/settings.py",
-      "sha256": "be10e6b595728deced55df037f3f515bc4c805f974d27bb0d794aba5fddd4a42"
+      "sha256": "be10e6b595728deced55df037f3f515bc4c805f974d27bb0d794aba5fddd4a42",
+      "path": "venv/Lib/site-packages/shortsflow/settings.py"
     },
     {
-      "path": "venv/Lib/site-packages/shortsflow/schedule.py",
-      "sha256": "f011bcf8426ec8182ffdea11d42a6ebe97a0baf308437072ff49bb7b989be325"
+      "sha256": "f011bcf8426ec8182ffdea11d42a6ebe97a0baf308437072ff49bb7b989be325",
+      "path": "venv/Lib/site-packages/shortsflow/schedule.py"
     },
     {
-      "path": "venv/Lib/site-packages/shortsflow/full_editor.py",
-      "sha256": "f81de220bcfb8ee609549155866a16dd7b6de675fda28b4dd162d3de9869cea1"
+      "sha256": "0ab93084f4155a427eeb6b159d2407f1865dfcf35023c63a58e1d0836b35338a",
+      "path": "venv/Lib/site-packages/shortsflow/full_editor.py"
+    },
+    {
+      "sha256": "4621ce950d54250619410deddb00c3e77e8e36aba4b343becf9aabf277a1c4bb",
+      "path": "venv/Lib/site-packages/shortsflow/source_info.py"
     }
   ],
   "kind": "optional-improvements",
-  "required_base": "2026.11.27.1",
   "files": [
     {
       "sha256": "21ba85803fc15dc6881094edd06ef7dcf3d05013e2ddf5f54810984b674e7405",
@@ -32,8 +33,8 @@
       "path": "Apply-Improvements.ps1"
     },
     {
-      "sha256": "24c31a7599eb075ea4ff99dddee6b10c8146f0358c44679180c3251dc08ad725",
-      "bytes": 2899,
+      "sha256": "c69e09575f4a49fb1ccb37527372f5355a0c9934f326d10eaf432e686c07960a",
+      "bytes": 2894,
       "path": "HELP.txt"
     },
     {
@@ -62,13 +63,13 @@
       "path": "RUN-IMPROVEMENTS.cmd"
     },
     {
-      "sha256": "270f18775b6192ddf42c958b8043905547500b2942ce3bcf19a4ffef1cd72c1d",
+      "sha256": "1e5832f8a86061d88de3d731ae94428e139281ab108e9476f84b2251434da8fc",
       "bytes": 26,
       "path": "runtime/shortsflow_improvements/__init__.py"
     },
     {
-      "sha256": "a28aeab5ecdfba8700c02e129778cae2b54840cce40f2b9a546bb7bf0657a76b",
-      "bytes": 10620,
+      "sha256": "38f7ba2328368ed9e095528991ffde9697492e91696d5125c0cc558fa105105b",
+      "bytes": 10822,
       "path": "runtime/shortsflow_improvements/addon.py"
     },
     {
@@ -126,5 +127,8 @@
       "bytes": 5653,
       "path": "Update-Improvements.ps1"
     }
-  ]
+  ],
+  "required_base": "2026.11.27.2",
+  "version": "2026.11.27.3",
+  "schema": 1
 }
